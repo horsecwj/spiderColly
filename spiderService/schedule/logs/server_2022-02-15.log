@@ -1,0 +1,1 @@
+[2022-02-15 01:00:43]	[34minfo[0m	schedule/artSpider.go:135	 插入失败:Error 1062: Duplicate entry '' for key 'uix_slate_article_link'

@@ -1,0 +1,18 @@
+Debug: true
+Notice: true
+LogConfig:
+  Path: ""
+  Level: ""
+
+Database:
+  Host: "127.0.0.1"
+  Port: "3306"
+  LogMode: true
+  Username: "root"
+  Password: "123456"
+  Database: "spider"
+
+Server:
+  Port: "9527"
+  SummedCheck: true
+  VerifyHost: "http://172.30.31.56:8004/"
