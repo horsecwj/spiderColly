@@ -36,7 +36,7 @@ func GetArticleBybitArt(titleStart string) ([]model.BybitArticle, error) {
 	c.OnHTML("div[class='vc_column_inner tdi_131  wpb_column vc_column_container tdc-inner-column td-pb-span12'] div[id='tdi_132'] ", func(elem *colly.HTMLElement) {
 		elem.DOM.Each(func(_ int, ts *goquery.Selection) {
 			s := ts.Find("div[class='td_module_flex td_module_flex_1 td_module_wrap td-animation-stack td-meta-info-hide ']")
-			for i, _ := range s.Nodes {
+			for i := range s.Nodes {
 				str := s.Find("div[class='td-module-meta-info']").Eq(i)
 				Overview := str.Eq(0).Find("div[class='td-excerpt']").Text()
 				link, _ := str.Eq(0).Find("h3 a").Attr("href")
@@ -137,7 +137,7 @@ func GetArticleBybitDetailSlate(collector *colly.Collector, url string) model.By
 		log.Println("start visit: ", request.URL.String())
 	})
 	tempBybitArticle := model.BybitArticle{}
-	collector.OnHTML("div[class='td_block_wrap tdb_single_content tdi_102 td-pb-border-top td_block_template_2 td-post-content tagdiv-type'] div[class='tdb-block-inner td-fix-index']", func(elem *colly.HTMLElement) {
+	collector.OnHTML("div[data-td-block-uid='tdi_103'] div[class='tdb-block-inner td-fix-index']", func(elem *colly.HTMLElement) {
 		art, err := elem.DOM.Html()
 		if err != nil {
 			log.Print(err)
@@ -146,12 +146,16 @@ func GetArticleBybitDetailSlate(collector *colly.Collector, url string) model.By
 		}
 	})
 
-	collector.OnHTML("div[class='td_block_wrap tdb_single_date tdi_70 td-pb-border-top td_block_template_2 tdb-post-meta'] div[class='tdb-block-inner td-fix-index']", func(elem *colly.HTMLElement) {
+	collector.OnHTML("div[data-td-block-uid='tdi_70'] div[class='tdb-block-inner td-fix-index']", func(elem *colly.HTMLElement) {
 		elem.DOM.Each(func(_ int, ts *goquery.Selection) {
 			timeStr, boolF := ts.Find("time").Attr("datetime")
 			//formatTime,err:=time.Parse("2006-01-02 15:04:05",formatTimeStr)
 			if boolF {
 				tempBybitArticle.Time = timeStr
+			}
+			timeStamp, err := RFC3339ToCSTInt64(timeStr)
+			if err == nil {
+				tempBybitArticle.Timestamp = timeStamp
 			}
 		})
 	})

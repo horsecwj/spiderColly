@@ -27,12 +27,9 @@ func (c *AddressController) GetOne() *mvc.Response {
 
 	var err error
 	var address string
-
 	address, err = c.Service.GetAddress()
 	if err != nil {
-
 		return MessageResponse(false, err.Error())
 	}
-
 	return DataResponse(true, address)
 }

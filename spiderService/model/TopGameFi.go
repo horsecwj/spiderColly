@@ -21,28 +21,31 @@ type TopCmkGameFi struct {
 }
 
 type BybitArticle struct {
-	Link     string `json:"link" gorm:"unique_index;"`
-	Id       uint32 `json:"id" gorm:"autoincrement;"`
-	Title    string `json:"title"`
-	OverView string `json:"over_view"`
-	Article  string `json:"article"`
-	Time     string `json:"time"`
+	Link      string `json:"link" gorm:"unique_index;"`
+	Id        uint32 `json:"id" gorm:"autoincrement;"`
+	Title     string `json:"title"`
+	OverView  string `json:"over_view"`
+	Article   string `json:"article"`
+	Time      string `json:"time"`
+	Timestamp int64  `json:"timestamp"`
 }
 
 type BybitNewlyArticle struct {
-	Link     string `json:"link" gorm:"unique_index;"`
-	Id       uint32 `json:"id" gorm:"autoincrement;"`
-	Title    string `json:"title"`
-	OverView string `json:"over_view"`
-	Article  string `json:"article"`
-	Time     string `json:"time"`
+	Link      string `json:"link" gorm:"unique_index;"`
+	Id        uint32 `json:"id" gorm:"autoincrement;"`
+	Title     string `json:"title"`
+	OverView  string `json:"over_view"`
+	Article   string `json:"article"`
+	Time      string `json:"time"`
+	Timestamp int64  `json:"timestamp"`
 }
 
 type SlateArticle struct {
-	Link     string `json:"link" gorm:"unique_index;"`
-	Id       uint32 `json:"id" gorm:"autoincrement;"`
-	Title    string `json:"title"`
-	OverView string `json:"over_view"`
-	Article  string `json:"article"`
-	Time     string `json:"time"`
+	Link      string `json:"link" gorm:"unique_index;"`
+	Id        uint32 `json:"id" gorm:"autoincrement;"`
+	Title     string `json:"title"`
+	OverView  string `json:"over_view"`
+	Article   string `json:"article"`
+	Time      string `json:"time"`
+	Timestamp int64  `json:"timestamp"`
 }

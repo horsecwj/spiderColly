@@ -11,37 +11,39 @@ import (
 
 func createTopGameFi(c *cron.Cron) (err error) {
 
-	err = c.AddFunc("@every 24h", synCmcGameFi)
+	err = c.AddFunc("@every 10m", synCmcGameFi)
 	if err != nil {
 		log.Print(err)
 		return
 	}
-	err = c.AddFunc("@every 24h", syncCoinGk)
+	err = c.AddFunc("@every 10m", syncCoinGk)
 	if err != nil {
 		log.Print(err)
 		return
 	}
+	log.Printf("createTopGameFi success ")
+
 	return
 }
 
 func synCmcGameFi() {
-	log.Print("synCmcGameFi")
 
 	err := util.Retry(3, 1*time.Second, cmcGameFi)
 	if err != nil {
 		common.Logger.Info("更新失败 synCmcGameFi:", err)
 		log.Print(err)
 	}
+	log.Print("synCmcGameFi")
 }
 
 func syncCoinGk() {
-	log.Print("syncCoinGk")
 
 	err := util.Retry(3, 1*time.Second, cgkGameFi)
 	if err != nil {
 		common.Logger.Info("更新失败 syncCoinGk :", err)
 		log.Print(err)
 	}
+	log.Print("syncCoinGk")
 }
 
 func cgkGameFi() error {
@@ -59,7 +61,7 @@ func cgkGameFi() error {
 		return err
 	}
 
-	err = db.SaveTopCkoGameFi(res[:10])
+	err = db.SaveTopCkoGameFi(res)
 	if err != nil {
 		common.Logger.Info("插入TopCkoGameFi:", err)
 		return err

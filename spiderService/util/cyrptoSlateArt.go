@@ -13,7 +13,7 @@ func GetArticleCryptoSlate(titleStart string) ([]model.SlateArticle, error) {
 	artFlag := true
 	c := colly.NewCollector(
 		// 设置用户代理
-		colly.MaxDepth(100),
+		colly.MaxDepth(60),
 		colly.UserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"),
 	)
 	// 设置抓取频率限制
@@ -71,9 +71,9 @@ func GetArticleCryptoDetailSlate(collector *colly.Collector, url string) model.S
 	collector = collector.Clone()
 	_ = collector.Limit(&colly.LimitRule{
 		DomainGlob:  "*",
-		RandomDelay: 5 * time.Second,
+		RandomDelay: 3 * time.Second,
 	})
-	time.Sleep(5 * time.Second)
+	time.Sleep(4 * time.Second)
 	collector.OnRequest(func(request *colly.Request) {
 		log.Println("start visit: ", request.URL.String())
 	})
@@ -84,11 +84,17 @@ func GetArticleCryptoDetailSlate(collector *colly.Collector, url string) model.S
 			s := ts.Find("div").Eq(0)
 			title := s.Find("div[class='post-header article clearfix'] div[class='title clearfix ']").Find("h1").Text()
 			overView := s.Find("p[class='post-subheading']").Text()
+			timeStr := s.Find("div[class='post-meta clearfix'] div span[class='post-date']").Text()
+
 			art, err := s.Find("div[class='post-box clearfix'] article").Html()
 			if err != nil {
 				log.Print(err)
 			} else {
-				tempBybitArticle = model.SlateArticle{Title: title, OverView: overView, Article: art}
+				tempBybitArticle = model.SlateArticle{Title: title, OverView: overView, Article: art, Time: timeStr}
+			}
+			timestamp, err := timeParse(timeStr)
+			if err == nil {
+				tempBybitArticle.Timestamp = timestamp
 			}
 		})
 	})

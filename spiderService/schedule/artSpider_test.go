@@ -98,6 +98,7 @@ func TestRun8(t *testing.T) {
 	//synCmcGameFi()
 	syncCoinGk()
 }
+
 func TestRun7(t *testing.T) {
 	initDatabse()
 	db := database.DB()
@@ -123,6 +124,34 @@ func TestRun7(t *testing.T) {
 	c.OnResponse(func(resp *colly.Response) {
 		log.Print(resp.StatusCode)
 	})
-
 	util.GetArticleBybitDetailSlate(c, "https://learn.bybit.com/trading/what-is-market-correction/")
+}
+
+func TestRun9(t *testing.T) {
+	initDatabse()
+	_ = database.DB()
+	cmcArt()
+}
+
+func TestRun10(t *testing.T) {
+	initDatabse()
+	_ = database.DB()
+	bybitHighly()
+}
+
+func TestRun11(t *testing.T) {
+	initDatabse()
+	_ = database.DB()
+	bybitNewly()
+}
+
+func TestRun12(t *testing.T) {
+	initDatabse()
+	_ = database.DB()
+	cmcGameFi()
+}
+func TestRun13(t *testing.T) {
+	initDatabse()
+	_ = database.DB()
+	cgkGameFi()
 }

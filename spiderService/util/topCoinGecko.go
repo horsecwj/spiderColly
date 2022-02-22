@@ -2,7 +2,6 @@ package util
 
 import (
 	"Spider/spiderService/model"
-	"encoding/base64"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
 	"io/ioutil"
@@ -34,8 +33,8 @@ func GetTopGameFiCoinCko() ([]*model.TopCkoGameFi, error) {
 				res, _ := http.Get(link)
 				data, _ := ioutil.ReadAll(res.Body)
 
-				base64Data := "data:image/svg+xml;base64," + base64.StdEncoding.EncodeToString(data)
-				log.Println(base64Data)
+				//base64Data := "data:image/svg+xml;base64," + base64.StdEncoding.EncodeToString(data)
+				//log.Println(base64Data)
 
 				tplData := model.TopCkoGameFi{
 					ID:        len(ArrTopGameFi),

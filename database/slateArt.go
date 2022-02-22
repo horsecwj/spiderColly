@@ -19,13 +19,13 @@ func (db *DBConn) SaveSlateArt(array []model.SlateArticle) error {
 	params := make([]interface{}, 0, len(array)*7)
 	for _, address := range array {
 
-		values = append(values, "(?, ?, ?, ?, ?)")
+		values = append(values, "(?, ?, ?, ?, ?,?)")
 		params = append(params, address.Title, address.OverView)
 		params = append(params, address.Article, address.Link)
-		params = append(params, address.Time)
+		params = append(params, address.Time, address.Timestamp)
 	}
 
-	format := "insert into slate_article (title,over_view,article,link,time) values %s"
+	format := "insert into slate_article (title,over_view,article,link,time,timestamp) values %s"
 	sql := fmt.Sprintf(format, strings.Join(values, ","))
 
 	return db.Exec(sql, params...).Error
@@ -34,7 +34,7 @@ func (db *DBConn) SaveSlateArt(array []model.SlateArticle) error {
 // 获取一个未使用的地址
 func (db *DBConn) GetSlateArt() ([]*model.SlateArticle, error) {
 	var addr []*model.SlateArticle
-	err := db.Model(&addr).Debug().Order("id desc limit 1").Scan(&addr).Error
+	err := db.Model(&addr).Debug().Order("timestamp desc limit 1").Scan(&addr).Error
 	log.Print(err)
 	return addr, err
 }

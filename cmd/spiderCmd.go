@@ -4,7 +4,6 @@ import (
 	"Spider/common"
 	"Spider/database"
 	"Spider/spiderService"
-	"fmt"
 	"github.com/spf13/cobra"
 	"os"
 )
@@ -27,7 +26,7 @@ var SpiderCommand = &cobra.Command{
 			return
 		}
 		database.AutoMigrate()
-		fmt.Println("完成")
+
 		if err := spiderService.Run(); err != nil {
 			common.Logger.Info(" service 启动失败:%s", err)
 			os.Exit(1)
