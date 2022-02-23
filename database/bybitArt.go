@@ -40,3 +40,9 @@ func (db *DBConn) GetBybitArt() ([]model.BybitArticle, error) {
 	err := db.Model(&addr).Debug().Order("timestamp  limit 1").Scan(&addr).Error
 	return addr, err
 }
+
+// 根据symbol删除记录
+func (db *DBConn) DeleteBybitArt() error {
+
+	return db.Delete(&model.BybitArticle{}).Error
+}

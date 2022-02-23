@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/gocolly/colly"
+	"github.com/robfig/cron"
 	"github.com/spf13/viper"
 	"log"
 	"os"
@@ -87,12 +88,6 @@ func TestRun5(t *testing.T) {
 	syncCoinGk()
 }
 
-func TestRun6(t *testing.T) {
-	initDatabse()
-	bybitNewly()
-	//syncBybit()
-}
-
 func TestRun8(t *testing.T) {
 	initDatabse()
 	//synCmcGameFi()
@@ -150,8 +145,22 @@ func TestRun12(t *testing.T) {
 	_ = database.DB()
 	cmcGameFi()
 }
+
 func TestRun13(t *testing.T) {
 	initDatabse()
 	_ = database.DB()
 	cgkGameFi()
+}
+
+func TestRun6(t *testing.T) {
+
+	c := cron.New()
+	err := c.AddFunc("@every 10m", synCmc)
+	if err != nil {
+		log.Print(err)
+		return
+	}
+	c.Run()
+	select {}
+
 }

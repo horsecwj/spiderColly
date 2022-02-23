@@ -40,13 +40,14 @@ func syncBybit() {
 	log.Print("syncBybit")
 	err := util.Retry(3, 1*time.Second, bybitHighly)
 	if err != nil {
-		common.Logger.Info("更新失败bybitart:", err)
+		common.Logger.Info("更新失败bybitHighly:", err)
 		log.Print(err)
 	}
 	err = util.Retry(3, 1*time.Second, bybitNewly)
 
 	if err != nil {
-		common.Logger.Info("更新失败bybitnewlyart:", err)
+
+		common.Logger.Info("更新失败bybitHighly:", err)
 
 		log.Print(err)
 	}
@@ -59,21 +60,17 @@ func bybitHighly() error {
 		resM []model.BybitArticle
 	)
 	db := database.DB()
-	res, err := db.GetBybitArt()
+	err = db.DeleteBybitArt()
 	if err != nil {
 		return err
 	}
-	if len(res) == 0 {
-		resM, err = util.GetArticleBybitArt("res.Link")
 
-	} else {
-		resM, err = util.GetArticleBybitArt(res[0].Link)
-
-	}
+	resM, err = util.GetArticleBybitArt("res.Link")
 
 	if err != nil {
 		return err
 	}
+
 	sort.Sort(util.BybitArticleSlice(resM))
 	err = db.SaveBybitHighLightArt(resM)
 	if err != nil {

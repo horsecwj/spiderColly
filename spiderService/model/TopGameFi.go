@@ -3,6 +3,7 @@ package model
 type TopCkoGameFi struct {
 	ID        int    `json:"id" `
 	Coin      string `json:"coin"  gorm:"primary key;"`
+	GameFi    string `json:"game_fi"`
 	Price     string `json:"price" `
 	OneDay    string `json:"one_day"  gorm:"comment:'一天涨幅';"`
 	OneWeek   string `json:"one_week"  gorm:"comment:'7天涨幅';"`

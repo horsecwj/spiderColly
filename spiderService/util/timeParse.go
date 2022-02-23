@@ -43,6 +43,9 @@ func timeParse(timeStr string) (int64, error) {
 	if hourMm == "pm" {
 		hourTmp := strings.Split(hour, ":")
 		timeHour = cast.ToString(cast.ToInt(hourTmp[0])+12) + ":" + hourTmp[1] + ":00"
+	} else {
+		hourTmp := strings.Split(hour, ":")
+		timeHour = cast.ToString(cast.ToInt(hourTmp[0])) + ":" + hourTmp[1] + ":00"
 	}
 	timeDay := year + "-" + monthInt + "-" + day
 	timeStrFin := timeDay + " " + timeHour

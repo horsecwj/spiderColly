@@ -13,7 +13,7 @@ func GetArticleCryptoSlate(titleStart string) ([]model.SlateArticle, error) {
 	artFlag := true
 	c := colly.NewCollector(
 		// 设置用户代理
-		colly.MaxDepth(60),
+		colly.MaxDepth(2),
 		colly.UserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"),
 	)
 	// 设置抓取频率限制
@@ -31,8 +31,8 @@ func GetArticleCryptoSlate(titleStart string) ([]model.SlateArticle, error) {
 	c.OnResponse(func(resp *colly.Response) {
 		log.Print(resp.StatusCode)
 	})
-
-	c.OnHTML("div[class='list-post clearfix ']", func(elem *colly.HTMLElement) {
+	//posts clearfix trending
+	c.OnHTML("div[class='posts'] div[class='list-post clearfix ']", func(elem *colly.HTMLElement) {
 		elem.DOM.Each(func(_ int, s *goquery.Selection) {
 
 			link, _ := s.Find("a").Attr("href")

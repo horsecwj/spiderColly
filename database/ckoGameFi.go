@@ -20,16 +20,16 @@ func (db *DBConn) SaveTopCkoGameFi(array []*model.TopCkoGameFi) error {
 	// 组装参数
 	for _, address := range array {
 
-		values = append(values, "(?, ?, ?, ?, ?, ?, ?, ?)")
+		values = append(values, "(?, ?, ?, ?, ?, ?, ?, ?,?)")
 		params = append(params, address.ID)
 		params = append(params, address.Coin, address.Price)
 		params = append(params, address.OneDay, address.OneWeek)
 		params = append(params, address.DayVolume, address.MktCap)
-		params = append(params, address.LastWeek)
+		params = append(params, address.LastWeek, address.GameFi)
 	}
 
 	// 拼接SQL
-	format := "insert into top_cko_game_fi (id,coin, price,one_day,one_week,day_volume,mkt_cap,last_week) values %s"
+	format := "insert into top_cko_game_fi (id,coin, price,one_day,one_week,day_volume,mkt_cap,last_week,game_fi) values %s"
 	sql := fmt.Sprintf(format, strings.Join(values, ","))
 
 	return db.Exec(sql, params...).Error

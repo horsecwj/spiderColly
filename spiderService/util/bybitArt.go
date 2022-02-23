@@ -107,7 +107,7 @@ func GetNewArticleBybitArt(titleStart string) ([]model.BybitNewlyArticle, error)
 					res.OverView = Overview
 					res.Link = link
 					temp := model.BybitNewlyArticle{Title: res.Title, OverView: res.OverView, Link: res.Link,
-						Article: res.Article, Time: res.Time, Id: res.Id}
+						Article: res.Article, Time: res.Time, Id: res.Id, Timestamp: res.Timestamp}
 					if len(res.Article) != 0 {
 						ArrTopGameFi = append(ArrTopGameFi, temp)
 					}
