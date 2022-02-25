@@ -3,7 +3,6 @@ package database
 import (
 	"Spider/spiderService/model"
 	"fmt"
-	"log"
 	"strings"
 )
 
@@ -35,6 +34,17 @@ func (db *DBConn) SaveSlateArt(array []model.SlateArticle) error {
 func (db *DBConn) GetSlateArt() ([]*model.SlateArticle, error) {
 	var addr []*model.SlateArticle
 	err := db.Model(&addr).Debug().Order("timestamp desc limit 1").Scan(&addr).Error
-	log.Print(err)
 	return addr, err
+}
+
+// 获取多个未使用的地址
+func (db *DBConn) GetManySlateArt() (map[string]bool, error) {
+	var addr []*model.SlateArticle
+	var linkMap map[string]bool
+	linkMap = make(map[string]bool, 20)
+	err := db.Model(&addr).Debug().Order("timestamp desc limit 20").Scan(&addr).Error
+	for _, item := range addr {
+		linkMap[item.Link] = true
+	}
+	return linkMap, err
 }

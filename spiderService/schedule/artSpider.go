@@ -112,6 +112,7 @@ func cmcArt() error {
 	)
 	db := database.DB()
 	res, err := db.GetSlateArt()
+
 	if err != nil {
 		common.Logger.Info("database 获取失败:", err)
 		return err
@@ -127,8 +128,17 @@ func cmcArt() error {
 		return err
 	}
 	sort.Sort(util.SlateArticleSlice(resM))
-	err = db.SaveSlateArt(resM)
+	var resFinal []model.SlateArticle
+	resMap, err := db.GetManySlateArt()
+	for _, item := range resM {
+		if resMap[item.Link] {
+		} else {
+			resFinal = append(resFinal, item)
+		}
+	}
+	err = db.SaveSlateArt(resFinal)
 	if err != nil {
+		log.Print(err)
 		common.Logger.Info(" 插入失败:", err)
 		return err
 	}

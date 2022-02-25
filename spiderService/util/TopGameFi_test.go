@@ -18,7 +18,8 @@ func TestGetArticleBybitArt(t *testing.T) {
 func TestRun10(t *testing.T) {
 	//Feb. 22, 2022 at 6:00 am UTC
 	//Feb. 15, 2022 at 1:30 pm UTC
-	timeInt, err := timeParse("Feb. 15, 2022 at 1:30 pm UTC")
+	//Feb. 22, 2022 at 12:40 pm UTC
+	timeInt, err := timeParse("Feb. 22, 2022 at 12:40 pm UTC")
 	log.Print(timeInt, err)
 }
 
