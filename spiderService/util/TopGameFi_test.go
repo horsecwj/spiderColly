@@ -12,6 +12,7 @@ func TestGetArticleBybit(t *testing.T) {
 	//res := GetArticleBybitArt()
 	GetTopGameKingData()
 }
+
 func TestGetArticleBybitArt(t *testing.T) {
 	getDappReader()
 }
@@ -19,7 +20,8 @@ func TestRun10(t *testing.T) {
 	//Feb. 22, 2022 at 6:00 am UTC
 	//Feb. 15, 2022 at 1:30 pm UTC
 	//Feb. 22, 2022 at 12:40 pm UTC
-	timeInt, err := timeParse("Feb. 22, 2022 at 12:40 pm UTC")
+	//Mar. 1, 2022 at 2:30 am UTC
+	timeInt, err := timeParse("Mar. 1, 2022 at 2:30 am UTC")
 	log.Print(timeInt, err)
 }
 

@@ -88,6 +88,19 @@ func DB() *DBConn {
 
 	return db
 }
+func ckDB() *DBConn {
+	once.Do(func() {
+
+		dbConfig := config.CKDBConf()
+		if dbConfig == nil {
+
+			return
+		}
+
+	})
+
+	return db
+}
 
 // 获取原始连接对象
 func OriginDB() *gorm.DB {
@@ -110,10 +123,15 @@ func CloseConn() {
 // 创建 & 更新表结构
 func AutoMigrate() {
 	var tables []interface{}
-	tables = append(tables, &model.TopCkoGameFi{}, &model.TopCmkGameFi{})
+	tables = append(tables, &model.TopCkoGameFi{}, &model.TopCmkGameFi{}, &model.TopCmkGameFiLosers{})
 
 	tables = append(tables, &model.BybitArticle{}, &model.SlateArticle{})
-	tables = append(tables, &model.BybitNewlyArticle{})
+	tables = append(tables, &MyBlockInfo{}, &TransInfo{})
+
+	tables = append(tables, &model.BybitNewlyArticle{}, &BcwBlockNumber{})
+
+	//tables = append(tables,&BlockInfo{})
+
 	// 创建表结构
 	for _, table := range tables {
 		createTable(table)

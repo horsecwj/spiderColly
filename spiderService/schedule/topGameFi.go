@@ -77,16 +77,29 @@ func cmcGameFi() error {
 		return err
 	}
 
+	err = db.DeleteTopCmkGameFiLosers()
+	if err != nil {
+		common.Logger.Info("删除TopCmkGameFi出错:", err)
+		return err
+	}
+
 	res, err := util.GetTopGameFiCoinMarket()
 	if err != nil {
 		common.Logger.Info("获取TopCmkGameFi:", err)
 		return err
 	}
 
-	err = db.SaveTopCmkGameFi(res[:10])
+	err = db.SaveTopCmkGameFi(res[:len(res)/2])
 	if err != nil {
 		common.Logger.Info("插入TopCmkGameFi:", err)
 		return err
 	}
+
+	err = db.SaveTopCmkGameFiLosers(res[len(res)/2:])
+	if err != nil {
+		common.Logger.Info("插入TopCmkGameFiLosers:", err)
+		return err
+	}
+
 	return nil
 }

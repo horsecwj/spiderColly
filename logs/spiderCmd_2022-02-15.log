@@ -1,5 +1,0 @@
-[2022-02-15 10:53:25]	[34minfo[0m	cmd/spiderCmd.go:32	 service 启动失败:%sFailed to parse duration @every 1d: time: unknown unit "d" in duration "1d"
-[2022-02-15 10:55:21]	[34minfo[0m	cmd/spiderCmd.go:32	 service 启动失败:%sFailed to parse duration @every 1d: time: unknown unit "d" in duration "1d"
-[2022-02-15 10:57:18]	[34minfo[0m	cmd/spiderCmd.go:32	 service 启动失败:%sFailed to parse duration @every 1d: time: unknown unit "d" in duration "1d"
-[2022-02-15 10:58:02]	[34minfo[0m	cmd/spiderCmd.go:32	 service 启动失败:%sFailed to parse duration @every 1d: time: unknown unit "d" in duration "1d"
-[2022-02-15 10:59:36]	[34minfo[0m	cmd/spiderCmd.go:32	 service 启动失败:%sFailed to parse duration @every 15: time: missing unit in duration "15"

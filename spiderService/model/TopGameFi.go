@@ -13,8 +13,21 @@ type TopCkoGameFi struct {
 }
 
 type TopCmkGameFi struct {
-	ID        int    `json:"id `
-	Coin      string `json:"coin" gorm:"primary key;"`
+	ID     int    `json:"id `
+	Coin   string `json:"coin" gorm:"primary key;"`
+	GameFi string `json:"game_fi"`
+
+	Price     string `json:"price"`
+	OneDay    string `json:"one_day"`
+	CoinPic   string `json:"coin_pic"`
+	DayVolume string `json:"day_volume"`
+}
+
+type TopCmkGameFiLosers struct {
+	ID     int    `json:"id `
+	Coin   string `json:"coin" gorm:"primary key;"`
+	GameFi string `json:"game_fi"`
+
 	Price     string `json:"price"`
 	OneDay    string `json:"one_day"`
 	CoinPic   string `json:"coin_pic"`
@@ -22,31 +35,39 @@ type TopCmkGameFi struct {
 }
 
 type BybitArticle struct {
-	Link      string `json:"link" gorm:"unique_index;"`
-	Id        uint32 `json:"id" gorm:"autoincrement;"`
-	Title     string `json:"title"`
-	OverView  string `json:"over_view"`
-	Article   string `json:"article"`
+	//gorm.Model
+	Link        string `json:"link" gorm:"unique_index;"`
+	Id          uint32 `json:"id" gorm:"autoincrement;"`
+	Title       string `json:"title"`
+	OverView    string `json:"over_view"`
+	Article     string `json:"article" gorm:"type:longtext"`
+	Articletext string `json:"articletext" gorm:"type:longtext"`
+
 	Time      string `json:"time"`
 	Timestamp int64  `json:"timestamp"`
 }
 
 type BybitNewlyArticle struct {
-	Link      string `json:"link" gorm:"unique_index;"`
-	Id        uint32 `json:"id" gorm:"autoincrement;"`
-	Title     string `json:"title"`
-	OverView  string `json:"over_view"`
-	Article   string `json:"article"`
+	//gorm.Model
+	Link        string `json:"link" gorm:"unique_index;"`
+	Id          uint32 `json:"id" gorm:"autoincrement;"`
+	Title       string `json:"title"`
+	OverView    string `json:"over_view"`
+	Article     string `json:"article" gorm:"type:longtext"`
+	Articletext string `json:"articletext" gorm:"type:longtext"`
+
 	Time      string `json:"time"`
 	Timestamp int64  `json:"timestamp"`
 }
 
 type SlateArticle struct {
-	Link      string `json:"link" gorm:"unique_index;"`
-	Id        uint32 `json:"id" gorm:"autoincrement;"`
-	Title     string `json:"title"`
-	OverView  string `json:"over_view"`
-	Article   string `json:"article"`
-	Time      string `json:"time"`
-	Timestamp int64  `json:"timestamp"`
+	//gorm.Model
+	Link        string `json:"link" gorm:"unique_index;"`
+	Id          uint32 `json:"id" gorm:"autoincrement;"`
+	Title       string `json:"title"`
+	OverView    string `json:"over_view"`
+	Article     string `json:"article" gorm:"type:longtext"`
+	Articletext string `json:"articletext" gorm:"type:longtext"`
+	Time        string `json:"time"`
+	Timestamp   int64  `json:"timestamp"`
 }

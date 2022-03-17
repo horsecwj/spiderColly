@@ -21,6 +21,7 @@ func GetArticleCryptoSlate(titleStart string) ([]model.SlateArticle, error) {
 		DomainGlob:  "*",
 		RandomDelay: 3 * time.Second, // 随机延迟
 	})
+
 	var ArrTopGameFi = make([]model.SlateArticle, 0, 1)
 	c.OnRequest(func(req *colly.Request) {
 		log.Println("Visiting", req.URL)
@@ -87,10 +88,12 @@ func GetArticleCryptoDetailSlate(collector *colly.Collector, url string) model.S
 			timeStr := s.Find("div[class='post-meta clearfix'] div span[class='post-date']").Text()
 
 			art, err := s.Find("div[class='post-box clearfix'] article").Html()
+			arttext := s.Find("div[class='post-box clearfix'] article").Text()
+
 			if err != nil {
 				log.Print(err)
 			} else {
-				tempBybitArticle = model.SlateArticle{Title: title, OverView: overView, Article: art, Time: timeStr}
+				tempBybitArticle = model.SlateArticle{Title: title, OverView: overView, Article: art, Time: timeStr, Articletext: arttext}
 			}
 			timestamp, err := timeParse(timeStr)
 			if err == nil {

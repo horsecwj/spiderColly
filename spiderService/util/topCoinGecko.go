@@ -53,8 +53,12 @@ func GetTopGameFiCoinCko() ([]*model.TopCkoGameFi, error) {
 				MktCap:    str.Eq(9).Find("span").Text(),
 				LastWeek:  string(data), //svg+xml文件
 			}
-			ArrTopGameFi = append(ArrTopGameFi, &tplData)
-
+			if len(tplData.MktCap) == 0 {
+				print(1)
+			}
+			if len(tplData.OneDay) != 0 || len(tplData.OneDay) != 0 || len(tplData.OneDay) != 0 {
+				ArrTopGameFi = append(ArrTopGameFi, &tplData)
+			}
 		})
 	})
 	// 查找下一页

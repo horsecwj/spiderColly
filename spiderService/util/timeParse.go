@@ -47,6 +47,9 @@ func timeParse(timeStr string) (int64, error) {
 		hourTmp := strings.Split(hour, ":")
 		timeHour = cast.ToString(cast.ToInt(hourTmp[0])) + ":" + hourTmp[1] + ":00"
 	}
+	if len(day) == 1 {
+		day = "0" + day
+	}
 	timeDay := year + "-" + monthInt + "-" + day
 	timeStrFin := timeDay + " " + timeHour
 	the_time, err := time.Parse("2006-01-02 15:04:05", timeStrFin)

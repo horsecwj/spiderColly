@@ -7,14 +7,12 @@ import (
 	"Spider/spiderService/util"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
-	"github.com/gocolly/colly"
 	"github.com/robfig/cron"
 	"github.com/spf13/viper"
 	"log"
 	"os"
 	"sort"
 	"testing"
-	"time"
 )
 
 func initDatabse() {
@@ -94,33 +92,33 @@ func TestRun8(t *testing.T) {
 	syncCoinGk()
 }
 
-func TestRun7(t *testing.T) {
-	initDatabse()
-	db := database.DB()
-	res, err := db.GetBybitNewlyArtBy()
-	log.Printf(res.Time, err)
-
-	c := colly.NewCollector(
-		colly.MaxDepth(2),
-		colly.UserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"),
-	)
-	// 设置抓取频率限制
-	_ = c.Limit(&colly.LimitRule{
-		DomainGlob:  "*",
-		RandomDelay: 3 * time.Second, // 随机延迟
-	})
-
-	c.OnRequest(func(req *colly.Request) {
-		log.Println("Visiting", req.URL)
-	})
-	c.OnError(func(_ *colly.Response, err error) {
-		log.Println("Something went wrong:", err)
-	})
-	c.OnResponse(func(resp *colly.Response) {
-		log.Print(resp.StatusCode)
-	})
-	util.GetArticleBybitDetailSlate(c, "https://learn.bybit.com/trading/what-is-market-correction/")
-}
+//func TestRun7(t *testing.T) {
+//	initDatabse()
+//	db := database.DB()
+//	res, err := db.GetBybitNewlyArtBy()
+//	log.Printf(res.Time, err)
+//
+//	c := colly.NewCollector(
+//		colly.MaxDepth(2),
+//		colly.UserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36"),
+//	)
+//	// 设置抓取频率限制
+//	_ = c.Limit(&colly.LimitRule{
+//		DomainGlob:  "*",
+//		RandomDelay: 3 * time.Second, // 随机延迟
+//	})
+//
+//	c.OnRequest(func(req *colly.Request) {
+//		log.Println("Visiting", req.URL)
+//	})
+//	c.OnError(func(_ *colly.Response, err error) {
+//		log.Println("Something went wrong:", err)
+//	})
+//	c.OnResponse(func(resp *colly.Response) {
+//		log.Print(resp.StatusCode)
+//	})
+//	util.GetArticleBybitDetailSlate(c, "https://learn.bybit.com/trading/what-is-market-correction/")
+//}
 
 func TestRun9(t *testing.T) {
 	initDatabse()
@@ -140,6 +138,17 @@ func TestRun11(t *testing.T) {
 	bybitNewly()
 }
 
+//DeletebitNewlyArtCoin
+
+func TestRun19(t *testing.T) {
+	initDatabse()
+	db := database.DB()
+	err := db.DeletebitNewlyArtCoin("1")
+	if err != nil {
+		return
+	}
+
+}
 func TestRun12(t *testing.T) {
 	initDatabse()
 	_ = database.DB()

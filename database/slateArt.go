@@ -18,13 +18,13 @@ func (db *DBConn) SaveSlateArt(array []model.SlateArticle) error {
 	params := make([]interface{}, 0, len(array)*7)
 	for _, address := range array {
 
-		values = append(values, "(?, ?, ?, ?, ?,?)")
+		values = append(values, "(?, ?, ?, ?, ?,?,?)")
 		params = append(params, address.Title, address.OverView)
 		params = append(params, address.Article, address.Link)
-		params = append(params, address.Time, address.Timestamp)
+		params = append(params, address.Time, address.Timestamp, address.Articletext)
 	}
 
-	format := "insert into slate_article (title,over_view,article,link,time,timestamp) values %s"
+	format := "insert into slate_article (title,over_view,article,link,time,timestamp,articletext) values %s"
 	sql := fmt.Sprintf(format, strings.Join(values, ","))
 
 	return db.Exec(sql, params...).Error

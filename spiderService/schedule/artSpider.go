@@ -18,6 +18,7 @@ func createArtSpider(c *cron.Cron) (err error) {
 		log.Print(err)
 		return
 	}
+
 	err = c.AddFunc("@every 10m", synCmc)
 	if err != nil {
 		log.Print(err)
@@ -28,6 +29,13 @@ func createArtSpider(c *cron.Cron) (err error) {
 }
 
 func synCmc() {
+	defer func() {
+		if err := recover(); err != nil {
+			log.Printf("run time panic: %v", err)
+			common.Logger.Info("run time panic: %v", err)
+		}
+	}()
+
 	log.Print("syncBycmc")
 	err := util.Retry(3, 1*time.Second, cmcArt)
 	if err != nil {
@@ -37,7 +45,12 @@ func synCmc() {
 }
 
 func syncBybit() {
-	log.Print("syncBybit")
+	defer func() {
+		if err := recover(); err != nil {
+			log.Printf("run time panic: %v", err)
+			common.Logger.Info("run time panic: %v", err)
+		}
+	}()
 	err := util.Retry(3, 1*time.Second, bybitHighly)
 	if err != nil {
 		common.Logger.Info("更新失败bybitHighly:", err)

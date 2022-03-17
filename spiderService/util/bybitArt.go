@@ -106,8 +106,9 @@ func GetNewArticleBybitArt(titleStart string) ([]model.BybitNewlyArticle, error)
 					res.Title = title
 					res.OverView = Overview
 					res.Link = link
+
 					temp := model.BybitNewlyArticle{Title: res.Title, OverView: res.OverView, Link: res.Link,
-						Article: res.Article, Time: res.Time, Id: res.Id, Timestamp: res.Timestamp}
+						Article: res.Article, Time: res.Time, Timestamp: res.Timestamp, Articletext: res.Articletext}
 					if len(res.Article) != 0 {
 						ArrTopGameFi = append(ArrTopGameFi, temp)
 					}
@@ -139,10 +140,12 @@ func GetArticleBybitDetailSlate(collector *colly.Collector, url string) model.By
 	tempBybitArticle := model.BybitArticle{}
 	collector.OnHTML("div[data-td-block-uid='tdi_103'] div[class='tdb-block-inner td-fix-index']", func(elem *colly.HTMLElement) {
 		art, err := elem.DOM.Html()
+		artText := elem.DOM.Text()
 		if err != nil {
 			log.Print(err)
 		} else {
 			tempBybitArticle.Article = art
+			tempBybitArticle.Articletext = artText
 		}
 	})
 

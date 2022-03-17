@@ -24,17 +24,27 @@ func GetTopGameFiCoinMarket() ([]*model.TopCmkGameFi, error) {
 	c.OnResponse(func(resp *colly.Response) {
 
 	})
+	//c.OnHTML("div[class='uikit-col-md-8 uikit-col-sm-16']", func(element *colly.HTMLElement) {
+	//
+	//	element.DOM.Each(func(_ int, s *goquery.Selection) {
+	//		str := s.Find("h3")
+	//		log.Print(str)
+	//	})
+	//
+	//})
 	c.OnHTML("table tbody tr", func(elem *colly.HTMLElement) {
 		elem.DOM.Each(func(_ int, s *goquery.Selection) {
 			str := s.Find("td")
-			name := str.Eq(1).Find("a div div p").Text()
+			name := str.Eq(1).Find("a div div p[color='text']").Text()
+			name2 := str.Eq(1).Find("a div div p[color='text3']").Text()
 			link, _ := str.Eq(1).Find("a div img").Attr("src")
-			if len(ArrTopGameFi) <= 10 {
+			if len(ArrTopGameFi) <= 100 {
 				res, _ := http.Get(link)
 				data, _ := ioutil.ReadAll(res.Body)
 				tplData := model.TopCmkGameFi{
 					ID:        len(ArrTopGameFi) + 1,
-					Coin:      name,
+					Coin:      name2,
+					GameFi:    name,
 					CoinPic:   string(data),
 					Price:     str.Eq(2).Find("span").Text(),
 					OneDay:    str.Eq(3).Find("span").Text(),
