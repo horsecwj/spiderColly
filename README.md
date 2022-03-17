@@ -88,6 +88,5 @@
 * 配置文件 ：./config.yaml/
   -- Mysql数据库配置：database
 
-run: 
-Spider   article topGameFi
- go run main.go spiderCmd
+* run Spider article and topGameFi conmand: 
+    - go run main.go spiderCmd
