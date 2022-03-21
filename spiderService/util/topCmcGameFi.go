@@ -1,6 +1,7 @@
 package util
 
 import (
+	"Spider/common"
 	"Spider/spiderService/model"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
@@ -33,6 +34,11 @@ func GetTopGameFiCoinMarket() ([]*model.TopCmkGameFi, error) {
 	//
 	//})
 	c.OnHTML("table tbody tr", func(elem *colly.HTMLElement) {
+		if elem == nil {
+			common.Logger.Info("coinmarketcap  table spider return nil")
+			return
+		}
+
 		elem.DOM.Each(func(_ int, s *goquery.Selection) {
 			str := s.Find("td")
 			name := str.Eq(1).Find("a div div p[color='text']").Text()

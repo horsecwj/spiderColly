@@ -59,6 +59,7 @@ func TestRun2(t *testing.T) {
 	err := db.DeleteTopCkoGameFi()
 	fmt.Print(err)
 }
+
 func TestRun3(t *testing.T) {
 	initDatabse()
 	db := database.DB()

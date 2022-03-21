@@ -37,7 +37,7 @@ func synCmc() {
 	}()
 
 	log.Print("syncBycmc")
-	err := util.Retry(3, 1*time.Second, cmcArt)
+	err := util.Retry(3, 500*time.Second, cmcArt)
 	if err != nil {
 		common.Logger.Info("更新失败cmcart:", err)
 		log.Print(err)
@@ -51,7 +51,8 @@ func syncBybit() {
 			common.Logger.Info("run time panic: %v", err)
 		}
 	}()
-	err := util.Retry(3, 1*time.Second, bybitHighly)
+
+	err := util.Retry(3, 500*time.Second, bybitHighly)
 	if err != nil {
 		common.Logger.Info("更新失败bybitHighly:", err)
 		log.Print(err)
@@ -149,6 +150,7 @@ func cmcArt() error {
 			resFinal = append(resFinal, item)
 		}
 	}
+
 	err = db.SaveSlateArt(resFinal)
 	if err != nil {
 		log.Print(err)
@@ -156,4 +158,5 @@ func cmcArt() error {
 		return err
 	}
 	return nil
+
 }

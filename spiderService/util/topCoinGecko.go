@@ -1,6 +1,7 @@
 package util
 
 import (
+	"Spider/common"
 	"Spider/spiderService/model"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
@@ -32,12 +33,19 @@ func GetTopGameFiCoinCko() ([]*model.TopCkoGameFi, error) {
 	})
 
 	c.OnHTML("table tbody tr", func(elem *colly.HTMLElement) {
+		if elem.DOM == nil {
+			common.Logger.Info("coingecko  table spider return nil")
+			return
+		}
 		elem.DOM.Each(func(_ int, s *goquery.Selection) {
 
 			str := s.Find("td")
-			link, _ := str.Eq(10).Find("img").Attr("data-src")
+			link, _ := str.Eq(10).Find("img").Attr("src")
 			res, _ := http.Get(link)
-			data, _ := ioutil.ReadAll(res.Body)
+			var data []byte
+			if res != nil {
+				data, _ = ioutil.ReadAll(res.Body)
+			}
 
 			//base64Data := "data:image/svg+xml;base64," + base64.StdEncoding.EncodeToString(data)
 			//log.Println(base64Data)
@@ -63,6 +71,10 @@ func GetTopGameFiCoinCko() ([]*model.TopCkoGameFi, error) {
 	})
 	// 查找下一页
 	c.OnHTML("li[class='page-item next'] a", func(element *colly.HTMLElement) {
+		if element == nil {
+			common.Logger.Info("coingecko  spider return nil")
+			return
+		}
 		href, found := element.DOM.Attr("href")
 		// 如果有下一页，则继续访问
 		if found && href != "#" {

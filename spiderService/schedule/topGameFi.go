@@ -27,8 +27,14 @@ func createTopGameFi(c *cron.Cron) (err error) {
 }
 
 func synCmcGameFi() {
+	defer func() {
+		if err := recover(); err != nil {
+			log.Printf("run time panic: %v", err)
+			common.Logger.Info("run time panic: %v", err)
+		}
+	}()
 
-	err := util.Retry(3, 1*time.Second, cmcGameFi)
+	err := util.Retry(3, 500*time.Second, cmcGameFi)
 	if err != nil {
 		common.Logger.Info("更新失败 synCmcGameFi:", err)
 		log.Print(err)
@@ -38,7 +44,14 @@ func synCmcGameFi() {
 
 func syncCoinGk() {
 
-	err := util.Retry(3, 1*time.Second, cgkGameFi)
+	defer func() {
+		if err := recover(); err != nil {
+			log.Printf("run time panic: %v", err)
+			common.Logger.Info("run time panic: %v", err)
+		}
+	}()
+
+	err := util.Retry(3, 500*time.Second, cgkGameFi)
 	if err != nil {
 		common.Logger.Info("更新失败 syncCoinGk :", err)
 		log.Print(err)
