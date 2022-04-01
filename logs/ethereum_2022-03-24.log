@@ -1,0 +1,51 @@
+[2022-03-24 07:50:36]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 07:50:36]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 07:50:36]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 07:50:45]	[33mwarn[0m	database/schedule.go:315	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 07:50:45]	[33mwarn[0m	database/schedule.go:315	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 07:59:02]	[33mwarn[0m	database/schedule.go:315	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:29]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:29]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 08:12:29]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-24 11:23:20]	[33mwarn[0m	database/schedule.go:375	合约执行失败不处理:0x3074983ca19688e8f48aa3e10f073dc5cfe896397253589563c71bf1a789452d
+[2022-03-24 11:27:11]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-24 11:27:16]	[33mwarn[0m	database/schedule.go:300	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:50]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:55]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:57]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:34:59]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:01]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:03]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:05]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:05]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:05]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 11:35:09]	[33mwarn[0m	database/schedule.go:299	获取交易发送者失败:wrong inclusion block/index
+[2022-03-24 23:11:11]	[34minfo[0m	batch/batch.go:276	flush errorsql: expected 12 arguments, got 13
+[2022-03-24 23:41:26]	[34minfo[0m	batch/batch.go:276	flush errorsql: expected 12 arguments, got 13
+[2022-03-24 23:41:32]	[34minfo[0m	batch/batch.go:276	flush errorsql: expected 12 arguments, got 13
+[2022-03-24 23:41:34]	[34minfo[0m	batch/batch.go:276	flush errorsql: expected 12 arguments, got 13
+[2022-03-24 23:41:36]	[34minfo[0m	batch/batch.go:276	flush errorsql: expected 12 arguments, got 13

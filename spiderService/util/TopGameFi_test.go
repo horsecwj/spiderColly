@@ -2,6 +2,7 @@ package util
 
 import (
 	"log"
+	"strings"
 	"testing"
 )
 
@@ -21,7 +22,10 @@ func TestRun10(t *testing.T) {
 	//Feb. 15, 2022 at 1:30 pm UTC
 	//Feb. 22, 2022 at 12:40 pm UTC
 	//Mar. 1, 2022 at 2:30 am UTC
-	timeInt, err := timeParse("Mar. 1, 2022 at 2:30 am UTC")
+	// Mar. 29, 2022 at 7:00 am UTC
+	timestr := " Mar. 29, 2022 at 7:00 am UTC"
+	timestr = strings.Trim(timestr, " ")
+	timeInt, err := timeParse(timestr)
 	log.Print(timeInt, err)
 }
 

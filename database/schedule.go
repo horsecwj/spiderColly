@@ -3,23 +3,28 @@ package database
 import (
 	"Spider/common"
 	"Spider/common/types"
+	"Spider/config"
+	ethUtil "Spider/spiderService/ethereum/util"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/spf13/cast"
+
+	//"Spider/config"
+	"encoding/hex"
+	"fmt"
+	ecommon "github.com/ethereum/go-ethereum/common"
+	//"github.com/ethereum/go-ethereum/common/hexutil"
 	ethTypes "github.com/ethereum/go-ethereum/core/types"
-	"log"
 	"math/big"
+	"strings"
 	//"Spider/database"
 	"sync"
 )
 
-//import (
-//	"Spider/common"
-//	"Spider/common/types"
-//	"Spider/database"
-//	ethTypes "github.com/ethereum/go-ethereum/core/types"
-//	"log"
-//	"math/big"
-//	"sync"
-//)
-//
+func EVMInstance() *ethUtil.ETHClient {
+
+	return ethUtil.EVMInstance(config.ETHConf().Chain)
+}
+
 type GetBlockNumber func() (uint, error)
 
 type SyncBlockScheduler struct {
@@ -93,6 +98,7 @@ type TransactionWorker struct {
 	BlockInfo *BlockInfo     // 区块信息
 	Recharges []*Transaction // 解析出来的充值记录
 	Success   bool           // 解析成功状态
+	CkInfo    *TransInfo
 }
 
 type BlockInfo struct {
@@ -198,15 +204,13 @@ func (scheduler *SyncTransactionScheduler) parseBlock(item BcwBlockNumber) {
 			}
 			go func(workertemp *TransactionWorker) {
 				temp := ParseTransaction(workertemp)
-				if len(temp.FromAddr) != 0 {
+				if len(temp.TId) != 0 || temp.Value != 0 {
 					temp.InsertTransTable("transaction")
 					tasksInfo = append(tasksInfo, &temp)
 				}
 			}(worker)
-
 			tasks = append(tasks, worker)
 		}
-
 		txWait.Wait()
 	}
 
@@ -214,7 +218,6 @@ func (scheduler *SyncTransactionScheduler) parseBlock(item BcwBlockNumber) {
 	//if err != nil{
 	//	log.Print(err)
 	//}
-
 	// 检查解析状态
 	recharges, succeed := scheduler.checkParseStatus(tasks)
 
@@ -235,34 +238,78 @@ func ParseTransaction(worker *TransactionWorker) TransInfo {
 		worker.Wait.Done()
 	}()
 
+	tmp := TransInfo{
+		Hash:             "",
+		BlockHash:        "",
+		Nonce:            0,
+		BlockNumber:      0,
+		TransactionIndex: 0,
+		FromAddr:         "",
+		ToAddr:           "",
+		Value:            0,
+		Gas:              0,
+		GasPrice:         0,
+		BlockTimestamp:   0,
+		Data:             "",
+	}
+
 	tx := worker.BlockInfo.Getter(worker.Index).(*ethTypes.Transaction)
+
+	//client, err := ethclient.Dial("https://mainnet.infura.io/v3/2da8854f387e471f9063be2848f6f9a2")
+	//txHash := ecommon.HexToHash("0x806d1e8d6bde0539cbbc4a966906642bd84830e33f68b931bfd3938b135a7c16")
+	//worker.BlockInfo.Hash = "0xa1d74c520b5a71c02acfa3a62947be49d88e496d6abd07cf2cf2033045fbd8bf"
+	////worker.Index =
+	//tx, _, err  = client.TransactionByHash(context.Background(), txHash)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+
 	receiver := tx.To()
 	if receiver == nil {
-
 		worker.Success = true
 		common.Logger.Info(tx.Hash().Hex(), "：无接收地址")
 		return TransInfo{}
 	}
-
 	receiverAddr := receiver.Hex()
+
 	q := tx.Value()
 	quantity := q.Uint64()
-
-	asMessage, e := tx.AsMessage(ethTypes.LatestSignerForChainID(big.NewInt(int64(1))), tx.GasPrice())
-
-	if e != nil {
-		log.Println(e)
+	data := tx.Data()
+	var tid string
+	if data != nil && len(data) >= 4+32*2 {
+		rec, tidInt, qua, _, err := parseInputData(tx.Hash().String(), receiverAddr, data)
+		tid = cast.ToString(tidInt)
+		if err == nil && !strings.EqualFold(rec, "") {
+			//symbol, _ = DB().GetSymbol(sym)
+			receiverAddr = rec
+			quantity = qua
+		} else {
+			worker.Success = true
+		}
+	} else {
+		worker.Success = true
 	}
 
-	fromAddr := asMessage.From().Hex()
+	sender, err := EVMInstance().GetSender(tx, worker.BlockInfo.Hash, uint64(worker.Index))
+	if err != nil {
+		common.Logger.Warn("获取交易发送者失败:", err)
+		return tmp
+	}
+
+	if sender.Hex() == "0x0000000000000000000000000000000000000000" {
+
+		common.Logger.Error("获取sender 错误 -> 0x0000000000000000000000000000000000000000")
+		return tmp
+	}
 
 	temp := TransInfo{
+		TId:              tid,
 		Hash:             tx.Hash().Hex(),
 		BlockHash:        worker.BlockInfo.Hash,
 		Nonce:            int64(tx.Nonce()),
 		BlockNumber:      worker.BlockInfo.Number,
 		TransactionIndex: worker.Index,
-		FromAddr:         fromAddr,
+		FromAddr:         sender.String(),
 		ToAddr:           receiverAddr,
 		Value:            int64(quantity),
 		Data:             string(tx.Data()),
@@ -270,9 +317,115 @@ func ParseTransaction(worker *TransactionWorker) TransInfo {
 		GasPrice:         tx.GasPrice().Int64(),
 		BlockTimestamp:   worker.BlockInfo.Timestamp,
 	}
-
+	worker.CkInfo = &temp
+	worker.Success = true
 	return temp
 
+}
+
+func parseInputData(txHash, contract string, data []byte) (receiver string, tid, quantity uint64, symbol string, err error) {
+
+	{
+		mthod := data[:4]
+		ms := hexutil.Encode(mthod)
+		var address ecommon.Address
+		//var tid uint64
+		switch ms {
+		///erc20 transfer
+		case "0xa9059cbb": //0xec35097177d51ebe983dcb72b3d2d01b88cb5394cf7ca767868801898c511a7f
+			balanceMethod := "70a08231"
+			// 再截取地址
+			addressData := data[4:36]
+			address = ecommon.BytesToAddress(addressData[12:])
+			valid := validateERC20Balance(contract, balanceMethod, address.Hex(), big.NewInt(0))
+			if !valid {
+				err = fmt.Errorf("ERC20 代币金额错误")
+				return
+			}
+			quantity = ParseDataToUint(data[36:68])
+
+		case "0x42842e0e": //0x8f92d5bfe185d3f1f888e52f4d6cd225fda00066a1c645e9b74064f723cfa9fc  safe Transefer
+			addressData := data[36:68]
+			address = ecommon.BytesToAddress(addressData[12:])
+			tid = ParseDataToUint(data[68:100])
+			quantity = 1
+		case "0x23b872dd": //	0x806d1e8d6bde0539cbbc4a966906642bd84830e33f68b931bfd3938b135a7c16 transefer from
+			addressData := data[36:68]
+			address = ecommon.BytesToAddress(addressData[12:])
+			tid = ParseDataToUint(data[68:100])
+			quantity = 1
+		case "0xf242432a": //0x4766a1731beaa5640a66e73524e772dd4ff297de777358598361c110c02b4887 safeTransferFrom
+			addressData := data[36:68]
+			address = ecommon.BytesToAddress(addressData[12:])
+			tid = ParseDataToUint(data[68:100])
+			quantity = ParseDataToUint(data[100:132])
+		}
+
+		// 判断执行结果
+		receipt, e := EVMInstance().GetTransactionReceipt(txHash)
+		if e != nil {
+			err = e
+			common.Logger.Warn("查询receipt出错:", txHash, "----:", err)
+			return
+		}
+		if receipt.Status != 1 {
+			common.Logger.Warn("合约执行失败不处理:", txHash)
+			return
+		}
+		receiver = address.Hex()
+		//logs := receipt.Logs
+		//for _,vLog := range logs{
+		//
+		//	switch vLog.Topics[0].Hex() {
+		//	case "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"{
+		//
+		//	}
+		//
+		//	}
+		//
+		//}
+
+		return
+	}
+}
+
+func ParseDataToUint(idData []byte) uint64 {
+	//idData := data[68:100]
+	var err error
+	id := hex.EncodeToString(idData)
+	// 去除前缀的0，并添加0x
+	id = parseInputDataQuantityHex(id)
+	var b *big.Int
+	b, err = hexutil.DecodeBig(id)
+	if err != nil {
+		//common.Logger.Warn(txHash, " - 解析 ERC20 金额失败:", err)
+		return 0
+	}
+	tId := b.Uint64()
+	return tId
+}
+
+func parseInputDataQuantityHex(value string) string {
+
+	if strings.HasPrefix(value, "0") {
+
+		return parseInputDataQuantityHex(strings.Replace(value, "0", "", 1))
+	} else {
+
+		return "0x" + value
+	}
+}
+
+// 验证
+func validateERC20Balance(contract string, method string, address string, amount *big.Int) bool {
+	balance, err := EVMInstance().GetERC20Balance(contract, method, address)
+	if err != nil {
+
+		common.Logger.Warn("解析ERC20余额出错:", err)
+		return false
+	}
+
+	return balance.Cmp(amount) >= 0
 }
 
 // 解析成功更新状态
@@ -288,10 +441,10 @@ func (scheduler *SyncTransactionScheduler) blockParseSucceed(block *BcwBlockNumb
 
 	_, err := db.Transaction(func(tx *DBConn) (i interface{}, e error) {
 
-		e = tx.SaveTransactions(recharges, scheduler.ChainType)
-		if e != nil {
-			return
-		}
+		//e = tx.SaveTransactions(recharges, scheduler.ChainType)
+		//if e != nil {
+		//	return
+		//}
 
 		e = block.ParseCompleteInDB(tx)
 

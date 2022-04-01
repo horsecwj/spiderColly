@@ -10,6 +10,7 @@ import (
 	"github.com/spf13/viper"
 	"log"
 	"testing"
+	"time"
 
 	"os"
 )
@@ -45,6 +46,24 @@ func initDatabse() {
 }
 
 func TestEVMInstance(t *testing.T) {
+	//initDatabse()
+	////c := config.APPConf()
+	//c := config.ETHConf()
+	//log.Print(c)
+	//EVMConfig = c
+	//address := common.HexToAddress("0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f")
+	//GetContribution(address)
+	mainGetUniV2()
+}
+func mainGetUniV2() {
+	defer func() { //catch or finally
+		if err := recover(); err != nil { //catch
+			log.Printf("Exception: %v\n", err)
+			time.Sleep(240 * time.Second)
+			mainGetUniV2()
+		}
+	}()
+
 	initDatabse()
 	//c := config.APPConf()
 	c := config.ETHConf()
@@ -52,4 +71,5 @@ func TestEVMInstance(t *testing.T) {
 	EVMConfig = c
 	address := common.HexToAddress("0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f")
 	GetContribution(address)
+
 }

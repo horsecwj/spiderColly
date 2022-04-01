@@ -1,0 +1,164 @@
+[2022-03-23 16:45:53]	[33mwarn[0m	database/schedule.go:343	查询symbol失败Error 1146: Table 'spider.symbol' doesn't exist
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:16]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:17]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:18]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:18]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:18]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:18]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:18]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:19]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:19]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:20:19]	[33mwarn[0m	database/schedule.go:454	解析ERC20余额出错:execution reverted
+[2022-03-23 18:20:20]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:20:20]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:21:15]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:21:15]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:21:15]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-23 18:21:15]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:21:15]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:21:22]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:21:22]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:22:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:22:28]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-23 18:22:28]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:23:09]	[34minfo[0m	database/schedule.go:78	发现新高度:228500 当前高度:228000
+[2022-03-23 18:26:50]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:26:50]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:26:50]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:26:50]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:26:50]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-23 18:26:59]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:17]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:17]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:17]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:17]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:17]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:17]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:23]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:23]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:23]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:30]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:31]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:31]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:36]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:36]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:58]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:58]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:58]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:58]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:28:59]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:28:59]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:28:59]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:00]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:00]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:01]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:01]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:01]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:03]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:03]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:03]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:03]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:05]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:05]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:05]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:07]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:07]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:07]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:07]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:07]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:07]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:08]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:08]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:08]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:09]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:10]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:10]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:11]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:11]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:11]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:12]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:12]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:12]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:12]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:12]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:13]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:13]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:13]	[34minfo[0m	util/ethereum.go:327	查询ERC20出错:execution reverted
+[2022-03-23 18:29:13]	[33mwarn[0m	database/schedule.go:452	解析ERC20余额出错:execution reverted
+[2022-03-23 18:29:26]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:27e235e3 地址:1a5b34DE45340963Df4aA0729346772118E61169
+[2022-03-23 18:30:23]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0xdAC17F958D2ee523a2206206994597C13D831ec7 方法:27e235e3 地址:4426824A48Cf9D2731f44F49bf33Ce5AfccAAE82
+[2022-03-23 18:31:12]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-23 18:35:53]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-23 18:35:56]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-23 18:37:10]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-23 18:37:10]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9
+[2022-03-23 18:37:10]	[34minfo[0m	util/ethereum.go:316	查询ERC20:0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 方法:70a08231 地址:799dFD4083a146D3B35F3f5B5f5113F005fcB4D9

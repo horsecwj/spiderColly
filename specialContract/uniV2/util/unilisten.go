@@ -47,67 +47,78 @@ func GetUniTrans(blockumber int64, ca string, addrMap map[string]bool) (error, b
 			contractAddress,
 		},
 	}
-	//log.Print("blockumber",blockumber)
-	//log.Print("blockumber - interTime",blockumber-intervItme)
 
 	logs, err := client.FilterLogs(context.Background(), query)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Print("len(logs) :   ", len(logs))
+
 	contractAbi, err := abi.JSON(strings.NewReader(exchange.UniPairABI))
 	if err != nil {
 		log.Fatal(err)
 	}
+	//addrMap = make(map[string]bool)
 	logFillEvent := common.HexToHash("0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef")
-	var allTrans []UniPairTransfer
 	for _, vLog := range logs {
 		if over {
 			break
 		}
-		item := vLog.TxHash
-		log.Print(item)
+		var fillEvent UniPairTransfer
 		switch vLog.Topics[0].Hex() {
+
 		case logFillEvent.Hex():
-			var fillEvent UniPairTransfer
+
 			res1 := make(map[string]interface{})
 			err := contractAbi.Events["Transfer"].Inputs.UnpackIntoMap(res1, vLog.Data)
 			if err != nil {
 				log.Fatal(err)
 				return err, over
 			}
-			fillEvent.From = common.HexToAddress(vLog.Topics[1].String())
-			fillEvent.To = common.HexToAddress(vLog.Topics[2].String())
-			addrMap[vLog.Topics[1].String()] = true
-			addrMap[vLog.Topics[2].String()] = true
-			fillEvent.Value = res1["value"].(*big.Int)
-			allTrans = append(allTrans, fillEvent)
-		}
-		rec, err := client.TransactionReceipt(context.Background(), vLog.TxHash)
-		if err != nil {
-			return err, over
-		}
-		rca := rec.ContractAddress.String()
-		rca = strings.ToLower(rca)
-		ca = strings.ToLower(ca)
-		if rca == ca {
-			over = true
-		}
+			addr1 := vLog.Topics[1].String()
+			addr2 := vLog.Topics[2].String()
 
+			fillEvent.From = common.HexToAddress(addr1)
+			fillEvent.To = common.HexToAddress(addr2)
+			addrMap[addr1] = true
+			addrMap[addr2] = true
+			fillEvent.Value = res1["value"].(*big.Int)
+
+			tx := vLog.TxHash
+			rec, err := client.TransactionReceipt(context.Background(), tx)
+			if err != nil {
+				return err, over
+			}
+			rca := rec.ContractAddress.String()
+			rca = strings.ToLower(rca)
+			ca = strings.ToLower(ca)
+			if rca == ca {
+				over = true
+			}
+			//log.Print("tx : ",tx)
+		}
 	}
 	return err, over
 }
 
-func GetBtweenLog(ca string, addrMap map[string]bool) error {
+func GetBtweenLog(worker *TransactionWorker) error {
 
-	_, err := EVMInstance().LastBlockNumber()
+	ca := worker.Address
+
+	//addrMap := make(map[string]bool)
+	//worker.AddrMap
+	blockNum, err := EVMInstance().LastBlockNumber()
 	if err != nil {
 		return err
 	}
-	//log.Print(blockNum)
-	for i := 13897211; i > 0; i -= intervItme {
-		log.Print("i", i)
-		err, over := GetUniTrans(cast.ToInt64(i-intervItme), ca, addrMap)
+	worker.BlockNum = cast.ToInt64(blockNum)
+	//log.Print(blockNum) 10007197
+	for i := blockNum; i > 10007197; i -= intervItme {
+		log.Printf("index : %d, i :%d ", worker.Index, i)
+		if i <= intervItme {
+			i = intervItme
+		}
+		err, over := GetUniTrans(cast.ToInt64(i-intervItme), ca, worker.AddrMap)
+
 		if err != nil {
 			return err
 		}
@@ -115,5 +126,7 @@ func GetBtweenLog(ca string, addrMap map[string]bool) error {
 			break
 		}
 	}
+
+	log.Print("over download ", worker.Address)
 	return err
 }

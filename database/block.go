@@ -14,6 +14,7 @@ type BcwBlockNumber struct {
 
 type TransInfo struct {
 	Hash             string
+	TId              string
 	BlockHash        string
 	Nonce            int64
 	BlockNumber      int

@@ -28,6 +28,11 @@ var ethOnce sync.Once
 var hecoOnce sync.Once
 var bscOnce sync.Once
 
+type EthereumUtil struct {
+	ctx    context.Context
+	client *ethclient.Client
+}
+
 const (
 	GasLimit            = 21000
 	ERC20GasLimit       = 80000
@@ -306,7 +311,6 @@ func (c *ETHClient) GetERC20Balance(contract, method, address string) (balance *
 
 	// 组装参数
 	addressData := ZeroFix(TransferParamLength, address)
-
 	dataText := method + addressData
 	data := ethCommon.Hex2Bytes(dataText)
 
@@ -452,10 +456,6 @@ func (c *ETHClient) GetERC20Gas(contract, wallet, addr string, quantity uint64) 
 
 	gas = price * limit
 	return
-}
-
-func IsValidAddress(addr string) bool {
-	return ethCommon.IsHexAddress(addr)
 }
 
 // ZeroTrim 去除 hex string 多余的 0

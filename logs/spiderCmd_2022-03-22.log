@@ -1,0 +1,11 @@
+[2022-03-22 09:06:24]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+[2022-03-22 09:14:47]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:16:15]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:24:36]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:26:14]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:31:29]	[34minfo[0m	schedule/artSpider.go:57	更新失败bybitHighly:Get "https://learn.bybit.com/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:31:29]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:31:29]	[34minfo[0m	schedule/artSpider.go:42	更新失败cmcart:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:31:34]	[34minfo[0m	schedule/artSpider.go:64	更新失败bybitHighly:Get "https://learn.bybit.com/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:34:35]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused
+[2022-03-22 09:36:16]	[34minfo[0m	schedule/artSpider.go:141	 爬取失败:Get "https://cryptoslate.com/news/": proxyconnect tcp: dial tcp 127.0.0.1:10000: connect: connection refused

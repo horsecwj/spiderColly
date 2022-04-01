@@ -1,0 +1,11 @@
+[2022-03-25 01:48:28]	[34minfo[0m	batch/batch.go:276	flush errorcode: 16, message: No such column TId in table ethDatas.transaction (dbe866a2-ed0a-438e-9209-dcb960515a4d)
+[2022-03-25 01:48:30]	[34minfo[0m	batch/batch.go:276	flush errorcode: 16, message: No such column TId in table ethDatas.transaction (dbe866a2-ed0a-438e-9209-dcb960515a4d)
+[2022-03-25 01:48:36]	[34minfo[0m	batch/batch.go:276	flush errorcode: 16, message: No such column TId in table ethDatas.transaction (dbe866a2-ed0a-438e-9209-dcb960515a4d)
+[2022-03-25 01:48:38]	[34minfo[0m	batch/batch.go:276	flush errorcode: 16, message: No such column TId in table ethDatas.transaction (dbe866a2-ed0a-438e-9209-dcb960515a4d)
+[2022-03-25 01:50:49]	[34minfo[0m	batch/batch.go:276	flush errorValue (UInt64): unexpected type string
+[2022-03-25 01:50:51]	[34minfo[0m	batch/batch.go:276	flush errorValue (UInt64): unexpected type string
+[2022-03-25 01:50:55]	[34minfo[0m	batch/batch.go:276	flush errorValue (UInt64): unexpected type string
+[2022-03-25 01:50:57]	[34minfo[0m	batch/batch.go:276	flush errorValue (UInt64): unexpected type string
+[2022-03-25 01:59:55]	[34minfo[0m	batch/batch.go:276	flush errordriver: bad connection
+[2022-03-25 02:15:57]	[34minfo[0m	database/schedule.go:77	发现新高度:229000 当前高度:228500
+[2022-03-25 02:16:49]	[34minfo[0m	database/schedule.go:273	0xb3fbbda7862791ec65c07b1162bd6c6aa10efc89196a8727790a9b03b3ca7bab：无接收地址

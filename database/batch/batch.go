@@ -270,6 +270,9 @@ func (b *BatchInsert) flusher() {
 		b.mu.Unlock()
 		startTime := time.Now()
 		if l.Len() > 0 {
+			//temp := l.Front()
+			//log.Print(temp)
+			//INSERT INTO transaction (Hash, BlockHash, Nonce, BlockNumber, TransactionIndex,FromAddr,ToAddr,Value,TId,Gas,GasPrice,BlockTimestamp,Data)                                       VALUES (?,  ?,       ?,      ?,          ?,              ?,        ?,     ?,    ?,?, ?,        ?,           ?)
 			err := batchInsert(b.db, b.insertSql, l)
 			if err != nil {
 				b.opts.logger.Log("flush error", err)

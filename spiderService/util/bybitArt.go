@@ -4,7 +4,10 @@ import (
 	"Spider/spiderService/model"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly"
+	"io/ioutil"
 	"log"
+	"net/http"
+	"strings"
 	"time"
 )
 
@@ -52,6 +55,7 @@ func GetArticleBybitArt(titleStart string) ([]model.BybitArticle, error) {
 					res.Title = title
 					res.OverView = Overview
 					res.Link = link
+
 					if len(res.Article) != 0 {
 						ArrTopGameFi = append(ArrTopGameFi, res)
 					}
@@ -113,7 +117,7 @@ func GetNewArticleBybitArt(titleStart string) ([]model.BybitNewlyArticle, error)
 					res.Link = link
 
 					temp := model.BybitNewlyArticle{Title: res.Title, OverView: res.OverView, Link: res.Link,
-						Article: res.Article, Time: res.Time, Timestamp: res.Timestamp, Articletext: res.Articletext}
+						Article: res.Article, Time: res.Time, Timestamp: res.Timestamp, Articletext: res.Articletext, Pic: res.Pic}
 					if len(res.Article) != 0 {
 						ArrTopGameFi = append(ArrTopGameFi, temp)
 					}
@@ -167,6 +171,28 @@ func GetArticleBybitDetailSlate(collector *colly.Collector, url string) model.By
 			}
 		})
 	})
+
+	collector.OnHTML("div[data-td-block-uid='tdi_102']", func(elem *colly.HTMLElement) {
+		elem.DOM.Each(func(_ int, ts *goquery.Selection) {
+			timeStr := ts.Find("style").Eq(1).Nodes[0].FirstChild.Data
+			ssr2 := strings.Split(strings.Split(timeStr, "background: url('")[1], "');")[0]
+			if len(ssr2) == 0 {
+				return
+			}
+			res, err := http.Get(ssr2)
+			if err != nil {
+				return
+			}
+			var data []byte
+			if res != nil {
+				data, err = ioutil.ReadAll(res.Body)
+				if err != nil {
+					tempBybitArticle.Pic = string(data)
+				}
+			}
+		})
+	})
+
 	_ = collector.Visit(url)
 	collector.Wait()
 	return tempBybitArticle

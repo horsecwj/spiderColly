@@ -129,6 +129,7 @@ func AutoMigrate() {
 	tables = append(tables, &MyBlockInfo{}, &TransInfo{})
 
 	tables = append(tables, &model.BybitNewlyArticle{}, &BcwBlockNumber{})
+	tables = append(tables, &UniV3Info{}, &UniV2Info{})
 
 	//tables = append(tables,&BlockInfo{})
 

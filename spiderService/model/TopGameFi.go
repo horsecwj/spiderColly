@@ -42,9 +42,9 @@ type BybitArticle struct {
 	OverView    string `json:"over_view"`
 	Article     string `json:"article" gorm:"type:longtext"`
 	Articletext string `json:"articletext" gorm:"type:longtext"`
-
-	Time      string `json:"time"`
-	Timestamp int64  `json:"timestamp"`
+	Pic         string `json:"pic" gorm:"type:longtext"`
+	Time        string `json:"time"`
+	Timestamp   int64  `json:"timestamp"`
 }
 
 type BybitNewlyArticle struct {
@@ -55,6 +55,7 @@ type BybitNewlyArticle struct {
 	OverView    string `json:"over_view"`
 	Article     string `json:"article" gorm:"type:longtext"`
 	Articletext string `json:"articletext" gorm:"type:longtext"`
+	Pic         string `json:"pic" gorm:"type:longtext"`
 
 	Time      string `json:"time"`
 	Timestamp int64  `json:"timestamp"`
@@ -68,6 +69,8 @@ type SlateArticle struct {
 	OverView    string `json:"over_view"`
 	Article     string `json:"article" gorm:"type:longtext"`
 	Articletext string `json:"articletext" gorm:"type:longtext"`
-	Time        string `json:"time"`
-	Timestamp   int64  `json:"timestamp"`
+	Pic         string `json:"pic" gorm:"type:longtext"`
+
+	Time      string `json:"time"`
+	Timestamp int64  `json:"timestamp"`
 }

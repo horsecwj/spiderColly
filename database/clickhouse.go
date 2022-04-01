@@ -49,8 +49,8 @@ func chOnceDbTc(tableName string) *batchinsert.BatchInsert {
 	chOnceDo.Do(func() {
 		options = getOption()
 		var err error
-		sqlStr := fmt.Sprintf("INSERT INTO %s (Hash, BlockHash, Nonce, BlockNumber, TransactionIndex,FromAddr,ToAddr,Value,Gas,GasPrice,BlockTimestamp,Data) "+
-			"                                      VALUES (?,  ?,       ?,      ?,          ?,              ?,        ?,     ?,    ?, ?,        ?,           ?)", tableName)
+		sqlStr := fmt.Sprintf("INSERT INTO %s (Hash, BlockHash, Nonce, BlockNumber, TransactionIndex,FromAddr,ToAddr,Value,TId,Gas,GasPrice,BlockTimestamp,Data) "+
+			"                                      VALUES (?,  ?,       ?,      ?,          ?,              ?,        ?,     ?,    ?,?, ?,        ?,           ?)", tableName)
 		Tc, err = batchinsert.New(sqlStr, options...)
 		if err != nil {
 			return
@@ -86,6 +86,7 @@ TransactionIndex UInt8,
 FromAddr FixedString(100),
 ToAddr FixedString(100),
 	Value  UInt64,
+	TId FixedString(10),
 	Gas UInt64,
 GasPrice UInt64,
 BlockTimestamp UInt64,
@@ -156,7 +157,7 @@ func ExecC(tableName string, args chan TransInfo) {
 			break
 		default:
 			a := <-args
-			irr := Tc.Insert(a.Hash, a.BlockHash, a.Nonce, a.BlockNumber, a.TransactionIndex, a.FromAddr, a.ToAddr, a.Value, a.Gas,
+			irr := Tc.Insert(a.Hash, a.BlockHash, a.Nonce, a.BlockNumber, a.TransactionIndex, a.FromAddr, a.ToAddr, a.Value, a.TId, a.Gas,
 				a.GasPrice, a.BlockTimestamp, a.Data)
 
 			if irr != nil {
