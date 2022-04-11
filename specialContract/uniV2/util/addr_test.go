@@ -4,15 +4,15 @@ import (
 	sc "Spider/common"
 	"Spider/config"
 	"Spider/database"
+	"Spider/specialContract/evmConfig"
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"log"
+	"os"
 	"testing"
 	"time"
-
-	"os"
 )
 
 func initDatabse() {
@@ -53,14 +53,14 @@ func TestEVMInstance(t *testing.T) {
 	//EVMConfig = c
 	//address := common.HexToAddress("0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f")
 	//GetContribution(address)
-	mainGetUniV2()
+	MainGetUniV2()
 }
-func mainGetUniV2() {
+func MainGetUniV2() {
 	defer func() { //catch or finally
 		if err := recover(); err != nil { //catch
 			log.Printf("Exception: %v\n", err)
 			time.Sleep(240 * time.Second)
-			mainGetUniV2()
+			MainGetUniV2()
 		}
 	}()
 
@@ -68,7 +68,7 @@ func mainGetUniV2() {
 	//c := config.APPConf()
 	c := config.ETHConf()
 	log.Print(c)
-	EVMConfig = c
+	evmConfig.EVMConfig = c
 	address := common.HexToAddress("0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f")
 	GetContribution(address)
 

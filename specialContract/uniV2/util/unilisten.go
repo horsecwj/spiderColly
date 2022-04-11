@@ -1,7 +1,7 @@
 package zrxErc20
 
 import (
-	"Spider/config"
+	"Spider/specialContract/evmConfig"
 	exchange "Spider/specialContract/uniV2/uniPair" // for demo
 	ethUtil "Spider/spiderService/ethereum/util"
 	"context"
@@ -15,14 +15,10 @@ import (
 	"strings"
 )
 
-var (
-	EVMConfig *config.ETHConfig
-)
-
 func EVMInstance() *ethUtil.ETHClient {
-	c := EVMConfig
+	c := evmConfig.EVMConfig
 	ethUtil.EVMInstance(c.Chain)
-	return ethUtil.EVMInstance(EVMConfig.Chain)
+	return ethUtil.EVMInstance(evmConfig.EVMConfig.Chain)
 }
 
 type UniPairTransfer struct {
