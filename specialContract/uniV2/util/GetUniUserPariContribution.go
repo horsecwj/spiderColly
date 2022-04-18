@@ -38,7 +38,6 @@ func GetContribution(address common.Address) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//所有的交易对
 	length, err := instance.AllPairsLength(nil)
 	if err != nil {
 		log.Fatal(err)
